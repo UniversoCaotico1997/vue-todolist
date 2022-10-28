@@ -33,6 +33,7 @@ const { createApp } = Vue
   createApp({
     data() {
       return {
+        newTask: "",
         tasks:[
             {
              text:`Fare la spesa`,
@@ -40,7 +41,7 @@ const { createApp } = Vue
             },
             {
              text:`Andare in palsetra`,
-             done:true   
+             done:false  
             },
             {
              text:`Portare fuori il cane`,
@@ -48,7 +49,7 @@ const { createApp } = Vue
             },
             {
               text:`Vedere amici`,
-              done:true   
+              done:false  
             },
             {
               text:`Andare dal Barbiere`,
@@ -56,5 +57,22 @@ const { createApp } = Vue
             },      
         ] 
       }
+    },
+    methods:{
+        addTask(){
+            console.log(`ho cliccato`);
+            console.log(this.newTask); 
+        }
+
+        
+        
+
     }
   }).mount('#app')
+
+  // se la task non è un booleano vero
+    // sbarra la task
+    // if (task !== true) {
+        // this.task
+        
+    // }
