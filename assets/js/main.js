@@ -54,7 +54,7 @@ const { createApp } = Vue
             {
               text:`Andare dal Barbiere`,
               done:true   
-            },      
+            },     
         ] 
       }
     },
@@ -62,9 +62,13 @@ const { createApp } = Vue
         addTask(){
             console.log(`ho cliccato`);
             console.log(this.newTask); 
+        },
+        done(index){
+            console.log(`ho cliccato`, index);
+            this.tasks.splice(index, 1);
         }
 
-        
+
         
 
     }
