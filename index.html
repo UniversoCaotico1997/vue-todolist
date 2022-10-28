@@ -15,7 +15,7 @@
     <div class="container">
         <div class="add_task">
             <h3>Add New Task</h3>
-            <input type="text" v-model="newTask">
+            <input type="text" v-model="newTask" @keyup.enter="newTask">
             <button @click="addTask">Add Me!!</button>
         </div>
         <div class="add_list my-5">

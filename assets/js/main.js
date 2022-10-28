@@ -63,20 +63,18 @@ const { createApp } = Vue
             console.log(`ho cliccato`);
             console.log(this.newTask); 
         },
+
+
         done(index){
             console.log(`ho cliccato`, index);
             this.tasks.splice(index, 1);
         }
-
-
-        
-
     }
   }).mount('#app')
 
   // se la task non è un booleano vero
     // sbarra la task
-    // if (task !== true) {
+    // if (task == true) {
         // this.task
         
     // }
