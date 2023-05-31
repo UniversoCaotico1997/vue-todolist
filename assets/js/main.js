@@ -6,15 +6,17 @@
 
 
 // MILESTONE 1
-// Stampare all'interno di una lista, un item per ogni todo. Se la proprietà done è uguale a true, visualizzare il testo del todo sbarrato.
+// Stampare all'interno di una lista, un item per ogni todo. 
+   // Se la proprietà done è uguale a true, visualizzare il testo del todo sbarrato.
 
 
 // MILESTONE 2
-// Visualizzare a fianco ad ogni item ha una "x": cliccando su di essa, il todo viene rimosso dalla lista.
+// Visualizzare a fianco ad ogni item  una "x": cliccando su di essa, il todo viene rimosso dalla lista.
 
 
 // MILESTONE 3
-// Predisporre un campo di input testuale e un pulsante "aggiungi": cliccando sul pulsante, il testo digitato viene letto e utilizzato per creare un nuovo todo, che quindi viene aggiunto alla lista dei todo esistenti.
+// Predisporre un campo di input testuale e un pulsante "aggiungi": 
+   //cliccando sul pulsante, il testo digitato viene letto e utilizzato per creare un nuovo todo, che quindi viene aggiunto alla lista dei todo esistenti.
 
 
 // Bonus:
@@ -33,7 +35,8 @@ const { createApp } = Vue
   createApp({
     data() {
       return {
-        newTask: "",
+        newTask:[],
+        error:false,
         tasks:[
             {
              text:`Fare la spesa`,
@@ -60,13 +63,32 @@ const { createApp } = Vue
     },
     methods:{
         addTask(){
-            console.log(`ho cliccato`);
-            console.log(this.newTask); 
-        },
+          
+            // console.log(`ho cliccato`);
+            // console.log(this.newTask); 
+            const userTask = {
+              text:this.newTask,
+              done:false
+            }
+            // console.log(userTask);
 
 
+            // Non consentire l 'aggiunta di task vuota o minore di 5 caratteri 
+            
+            if (this.newTask.length < 5 ) {
+                this.error = true
+            } else {
+              this.error = false
+              // pusho la task 
+              this.tasks.unshift(userTask)
+
+              // Svuota imput 
+              this.newTask = "";
+            }
+            
+          },
         done(index){
-            console.log(`ho cliccato`, index);
+            // console.log(`ho cliccato`, index);
             this.tasks.splice(index, 1);
         }
     }
